@@ -3,7 +3,7 @@
     <head>
         <title>Locked Out</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=360, initial-scale=1">
+        <!-- meta name="viewport" content="width=device-width, initial-scale=1" -->
         <meta name="description" content="Homepage for the mini game Locked Out">
         <meta name="keywords" content="board game, mini game, bluff, sci-fi">
         <meta name="author" content="René Uittenbogaard">
@@ -57,6 +57,11 @@
             .title p {
                 color: var(--secondary);
             }
+            /*
+            .logo {
+                max-width: 80vw;
+            }
+            */
             .lock-left,
             .lock-right {
                 position: absolute;
@@ -108,7 +113,7 @@
     </head>
     <body>
         <div class="title">
-            <img src="images/logo-closed.png" alt="Locked Out">
+            <img src="images/logo-closed.png" alt="Locked Out" class="logo">
             <img src="images/logo-lock.png" alt="" class="lock-left">
             <img src="images/logo-lock.png" alt="" class="lock-right">
             <p>
