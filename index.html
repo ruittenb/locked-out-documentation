@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Locked Out</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=360, initial-scale=1">
+        <meta name="description" content="Homepage for the mini game Locked Out">
+        <meta name="keywords" content="board game, mini game, bluff, sci-fi">
+        <meta name="author" content="René Uittenbogaard">
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <style>
+            @font-face {
+                font-family: 'Nasalization Regular';
+                src: url('fonts/nasalization-regular.ttf');
+            }
+            @font-face {
+                font-family: 'Kefa Bold';
+                src: url('fonts/kefa-bold.ttf');
+            }
+            @keyframes rotation-right {
+                0%   { transform: rotate(0deg);    }
+                80%  { transform: rotate(0deg);    }
+                90%  { transform: rotate(180deg);  }
+                100% { transform: rotate(0deg);    }
+            }
+            @keyframes rotation-left {
+                0%   { transform: rotate(0deg);    }
+                80%  { transform: rotate(0deg);    }
+                90%  { transform: rotate(-180deg); }
+                100% { transform: rotate(0deg);    }
+            }
+            :root {
+                --primary: #49dbf2;
+                --secondary: #dc9724;
+                --tile-size: 320px;
+                --tile-border-width: 1px;
+                --tile-gap: 20px;
+            }
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: black;
+                color: var(--primary);
+                font-family: 'Kefa Bold', serif;
+                font-size: 20px;
+            }
+            a[href] {
+                color: inherit;
+                text-decoration: none;
+            }
+            .title {
+                margin: 30px auto 70px;
+                text-align: center;
+            }
+            .title p {
+                color: var(--secondary);
+            }
+            .lock-left,
+            .lock-right {
+                position: absolute;
+                top: 77px;
+            }
+            .lock-left {
+                left: calc(50% - 236px);
+                animation: rotation-left 4s;
+                animation-iteration-count: infinite;
+            }
+            .lock-right {
+                left: calc(50% + 100px);
+                animation: rotation-right 4s;
+                animation-iteration-count: infinite;
+            }
+            .tiles {
+                display: flex;
+                gap: var(--tile-gap);
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Nasalization Regular', sans-serif;
+                font-size: 26px;
+            }
+            /* @media (max-width: calc(3 * var(--tile-size) + 2 * var(--tile-gap) + 6 * var(--tile-border-width))) { */
+            @media (max-width: 1016px) {
+                .tiles {
+                    flex-direction: column;
+                }
+            }
+            .tile {
+                display: inline-block;
+                width: var(--tile-size);
+                height: var(--tile-size);
+                border: var(--tile-border-width) outset white;
+                line-height: 110px;
+                text-align: center;
+            }
+            .tile.store {
+                background: black url('images/store.png') no-repeat center bottom 30px;
+            }
+            .tile.rulebook {
+                background: black url('images/rulebook.png') no-repeat center bottom 40px;
+            }
+            .tile.video {
+                background: black url('images/video.png') no-repeat center bottom 60px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="title">
+            <img src="images/logo-closed.png" alt="Locked Out">
+            <img src="images/logo-lock.png" alt="" class="lock-left">
+            <img src="images/logo-lock.png" alt="" class="lock-right">
+            <p>
+                A sci-fi themed board game for 3-6 players by René Uittenbogaard
+            </p>
+        </div>
+        <div class="tiles">
+            <a href="https://www.thegamecrafter.com/games/locked-out">
+                <span class="tile store">Store</span>
+            </a>
+            <a href="https://youtu.be/8BIboh9Kwkg">
+                <span class="tile video">Overview</span>
+            </a>
+            <a href="docs/Locked Out - Rulebook.pdf">
+                <span class="tile rulebook">Rulebook</span>
+            </a>
+        </div>
+        <p>&nbsp;</p>
+    </body>
+</html>
