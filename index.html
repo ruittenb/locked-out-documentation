@@ -8,7 +8,7 @@
         <meta name="keywords" content="board game, mini game, bluff, sci-fi">
         <meta name="author" content="René Uittenbogaard">
         <link rel="shortcut icon" href="images/favicon.ico">
-        <style>
+        <style> /* {{{ */
             @font-face {
                 font-family: 'Nasalization Regular';
                 src: url('fonts/nasalization-regular.ttf');
@@ -32,9 +32,9 @@
             :root {
                 --primary: #49dbf2;
                 --secondary: #dc9724;
-                --tile-size: 320px;
-                --tile-border-width: 1px;
                 --tile-gap: 20px;
+                --tile-size: 320px;
+                --tile-background-color: #022;
             }
             * {
                 margin: 0;
@@ -45,10 +45,6 @@
                 color: var(--primary);
                 font-family: 'Kefa Bold', serif;
                 font-size: 20px;
-            }
-            a[href] {
-                color: inherit;
-                text-decoration: none;
             }
             .title {
                 margin: 30px auto 70px;
@@ -96,20 +92,30 @@
                 display: inline-block;
                 width: var(--tile-size);
                 height: var(--tile-size);
-                border: var(--tile-border-width) outset white;
-                line-height: 110px;
+                border-width: 6px;
+                border-color: #ccc;
+                border-radius: 40px;
+                padding-bottom: 200px;
                 text-align: center;
+                font-family: inherit;
+                font-size: inherit;
+                color: inherit;
+                cursor: pointer;
+            }
+            .tile[disabled] {
+                filter: grayscale(100%);
+                cursor: not-allowed;
             }
             .tile.store {
-                background: black url('images/store.png') no-repeat center bottom 30px;
+                background: var(--tile-background-color) url('images/store.png') no-repeat center bottom 30px;
             }
             .tile.rulebook {
-                background: black url('images/rulebook.png') no-repeat center bottom 40px;
+                background: var(--tile-background-color) url('images/rulebook.png') no-repeat center bottom 40px;
             }
             .tile.video {
-                background: black url('images/video.png') no-repeat center bottom 60px;
+                background: var(--tile-background-color) url('images/video.png') no-repeat center bottom 60px;
             }
-        </style>
+        </style><!-- }}} -->
     </head>
     <body>
         <div class="title">
@@ -121,16 +127,23 @@
             </p>
         </div>
         <div class="tiles">
-            <a href="https://www.thegamecrafter.com/games/locked-out">
-                <span class="tile store">Store</span>
-            </a>
-            <a href="https://youtu.be/8BIboh9Kwkg">
-                <span class="tile video">Overview</span>
-            </a>
-            <a href="docs/Locked Out - Rulebook.pdf">
-                <span class="tile rulebook">Rulebook</span>
-            </a>
+            <button onclick="window.location.href = 'https://www.thegamecrafter.com/games/locked-out'"
+                class="tile store"
+            >
+                Store
+            </button>
+            <button onclick="window.location.href = 'docs/Locked Out - Rulebook.pdf'"
+                class="tile rulebook"
+            >
+                Rulebook
+            </button>
+            <button onclick="window.location.href = 'https://youtu.be/'"
+                class="tile video" disabled title="Coming soon"
+            >
+                Overview
+            </button>
         </div>
         <p>&nbsp;</p>
     </body>
 </html>
+<!-- vim: set ts=4 sw=4 et list fdm=marker ft=html: -->
