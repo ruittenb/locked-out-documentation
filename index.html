@@ -34,7 +34,9 @@
                 --secondary: #dc9724;
                 --tile-gap: 20px;
                 --tile-size: 320px;
-                --tile-background-color: #022;
+                --tile-border-width: 6px;
+                --tile-border-color: #eee;
+                --tile-background-color: #033;
             }
             * {
                 margin: 0;
@@ -89,11 +91,12 @@
                 }
             }
             .tile {
+                position: relative;
                 display: inline-block;
                 width: var(--tile-size);
                 height: var(--tile-size);
-                border-width: 6px;
-                border-color: #ccc;
+                border-width: var(--tile-border-width);
+                border-color: var(--tile-border-color);
                 border-radius: 40px;
                 padding-bottom: 200px;
                 text-align: center;
@@ -107,13 +110,31 @@
                 cursor: not-allowed;
             }
             .tile.store {
-                background: var(--tile-background-color) url('images/store.png') no-repeat center bottom 30px;
+                background: var(--tile-background-color) url('images/store.png') no-repeat center bottom 22px;
             }
             .tile.rulebook {
                 background: var(--tile-background-color) url('images/rulebook.png') no-repeat center bottom 40px;
             }
             .tile.video {
-                background: var(--tile-background-color) url('images/video.png') no-repeat center bottom 60px;
+                background: var(--tile-background-color) url('images/video.png') no-repeat center bottom 58px;
+            }
+            .tile .tooltip {
+                position: absolute;
+                z-index: 10;
+                transform: translate(-50%, 50%);
+                left: 50%;
+                bottom: 37%;
+                width: 90%;
+                border: 0;
+                border-radius: 6px;
+                padding: 3px 6px;
+                background-color: var(--primary);
+                color: black;
+                font-size: 80%;
+                visibility: hidden;
+            }
+            .tile:hover .tooltip {
+                visibility: visible;
             }
         </style><!-- }}} -->
     </head>
@@ -131,16 +152,26 @@
                 class="tile store"
             >
                 Store
+                <span class="tooltip">
+                    Visit the store page at The Game Crafter for more
+                    general infor&shy;mation about this game.
+                </span>
             </button>
             <button onclick="window.location.href = 'docs/Locked Out - Rulebook.pdf'"
                 class="tile rulebook"
             >
                 Rulebook
+                <span class="tooltip">
+                    Read and/or download the rulebook in PDF format.
+                </span>
             </button>
             <button onclick="window.location.href = 'https://youtu.be/'"
-                class="tile video" disabled title="Coming soon"
+                class="tile video" disabled
             >
                 Overview
+                <span class="tooltip">
+                    Coming soon: Watch a short video explaining the game.
+                </span>
             </button>
         </div>
         <p>&nbsp;</p>
