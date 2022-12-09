@@ -97,13 +97,18 @@
                 height: var(--tile-size);
                 border-width: var(--tile-border-width);
                 border-color: var(--tile-border-color);
+                border-style: outset;
                 border-radius: 40px;
-                padding-bottom: 200px;
+                box-sizing: border-box;
                 text-align: center;
+                text-decoration: none;
                 font-family: inherit;
                 font-size: inherit;
                 color: inherit;
                 cursor: pointer;
+            }
+            .tile:active {
+                border-style: inset;
             }
             .tile[disabled] {
                 filter: grayscale(100%);
@@ -117,6 +122,10 @@
             }
             .tile.video {
                 background: var(--tile-background-color) url('images/video.png') no-repeat center bottom 58px;
+            }
+            .tile .label {
+                display: inline-block;
+                margin-top: 40px;
             }
             .tile .tooltip {
                 position: absolute;
@@ -148,30 +157,30 @@
             </p>
         </div>
         <div class="tiles">
-            <button onclick="window.location.href = 'https://www.thegamecrafter.com/games/locked-out'"
+            <a href="https://www.thegamecrafter.com/games/locked-out"
                 class="tile store"
             >
-                Store
+                <span class="label">Store</span>
                 <span class="tooltip">
                     Visit the store page at The Game Crafter.
                 </span>
-            </button>
-            <button onclick="window.location.href = 'docs/Locked-Out-Rulebook.pdf'"
+            </a>
+            <a href="docs/Locked-Out-Rulebook.pdf"
                 class="tile rulebook"
             >
-                Rulebook
+                <span class="label">Rulebook</span>
                 <span class="tooltip">
                     Read and/or download the rulebook in PDF format.
                 </span>
-            </button>
-            <button onclick="window.location.href = 'https://youtu.be/I-s63NKyK_c'"
+            </a>
+            <a href="https://youtu.be/I-s63NKyK_c"
                 class="tile video"
             >
-                Overview
+                <span class="label">Overview</span>
                 <span class="tooltip">
                     Watch a short video explaining the game.
                 </span>
-            </button>
+            </a>
         </div>
         <p>&nbsp;</p>
     </body>
