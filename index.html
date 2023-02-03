@@ -48,6 +48,27 @@
                 font-family: 'Kefa Bold', serif;
                 font-size: 20px;
             }
+            .top-bg {
+                top: 0;
+            }
+            .bot-bg {
+                bottom: 0;
+            }
+            .top-bg,
+            .bot-bg {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                z-index: -10;
+                justify-content: space-between;
+                /* Disable for the time being. */
+                /* display: flex; */
+                display: none;
+            }
+            .top-bg img,
+            .bot-bg img {
+                display: block;
+            }
             .title {
                 margin: 30px auto 70px;
                 text-align: center;
@@ -148,6 +169,10 @@
         </style><!-- }}} -->
     </head>
     <body>
+        <div class="top-bg">
+            <img src="images/const-UMa-300.png" alt="Ursa Major">
+            <img src="images/const-Gem-300.png" alt="Gemini">
+        </div>
         <div class="title">
             <img src="images/logo-closed.png" alt="Locked Out" class="logo">
             <img src="images/logo-lock.png" alt="" class="lock-left">
@@ -183,6 +208,12 @@
             </a>
         </div>
         <p>&nbsp;</p>
+        <div class="bot-bg">
+            <img src="images/const-CMa-260.png" alt="Canis Major">
+            <img src="images/const-Ori-260.png" alt="Orion">
+            <img src="images/const-Tau-260.png" alt="Taurus">
+            <img src="images/const-Aqu-260.png" alt="Aquila">
+        </div>
     </body>
 </html>
 <!-- vim: set ts=4 sw=4 et list fdm=marker ft=html: -->
