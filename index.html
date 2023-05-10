@@ -32,6 +32,7 @@
             :root {
                 --primary: #49dbf2; /* cyan/lightblue */
                 --secondary: #dc9724; /* orange */
+                --highlight: yellow;
                 --tile-gap: 20px;
                 --tile-size: 320px;
                 --tile-border-width: 6px;
@@ -75,6 +76,7 @@
             }
             .title p {
                 color: var(--secondary);
+                margin-top: 5px;
             }
             /*
             .logo {
@@ -135,6 +137,9 @@
                 filter: grayscale(100%);
                 cursor: not-allowed;
             }
+            .tile.highlight {
+                border-color: var(--highlight);
+            }
             .tile.store {
                 background: var(--tile-background-color) url('images/store-2.png') no-repeat center bottom 30px;
             }
@@ -147,9 +152,20 @@
             .tile.review {
                 background: var(--tile-background-color) url('images/trophy-2.png') no-repeat center bottom 30px;
             }
+            @media (max-width: 1016px) {
+                .tile.store {
+                    order: 1;
+                }
+                .tile.review {
+                    order: 0;
+                }
+            }
             .tile .label {
                 display: inline-block;
                 margin-top: 40px;
+            }
+            .tile.highlight .label {
+                color: var(--highlight);
             }
             .tile .tooltip {
                 position: absolute;
@@ -177,7 +193,10 @@
             <img src="images/logo-lock-3d.png" alt="" class="lock-left">
             <img src="images/logo-lock-3d.png" alt="" class="lock-right">
             <p>
-                A sci-fi themed bluffing game for 3-6 players by René Uittenbogaard
+                A sci-fi themed game of bluff and deception for 3-6 players
+            </p>
+            <p>
+                By René Uittenbogaard
             </p>
         </div>
         <div class="tiles">
@@ -189,6 +208,14 @@
                     Visit the store page on The Game Crafter.
                 </span>
             </a>
+            <a href="https://www.dropbox.com/s/iur040gj5v1dy7v/Game%20Contest%20Finalists.docx?dl=0"
+                class="tile review highlight"
+            >
+                <span class="label">Winner!</span>
+                <span class="tooltip">
+                    Winner of the Lunchtime Game Challenge!
+                </span>
+            </a>
             <a href="docs/Locked-Out-Rulebook.pdf"
                 class="tile rulebook"
             >
@@ -197,23 +224,15 @@
                     Read and/or download the rulebook in PDF format.
                 </span>
             </a>
+        </div>
+        <br>
+        <div class="tiles">
             <a href="https://youtu.be/I-s63NKyK_c"
                 class="tile video"
             >
                 <span class="label">Overview</span>
                 <span class="tooltip">
                     Watch a short video explaining the game.
-                </span>
-            </a>
-        </div>
-        <br>
-        <div class="tiles">
-            <a href="https://www.dropbox.com/s/iur040gj5v1dy7v/Game%20Contest%20Finalists.docx?dl=0"
-                class="tile review"
-            >
-                <span class="label">Winner!</span>
-                <span class="tooltip">
-                    Winner of the Lunchtime Game Challenge
                 </span>
             </a>
         </div>
