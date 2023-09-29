@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
         <title>Locked Out</title>
         <meta charset="UTF-8">
@@ -38,8 +38,13 @@
                 --tile-border-width: 6px;
                 --tile-border-color: #eee; /* grey */
                 --tile-background-color: #033; /* dark cyan */
-                /* calc(3 * var(--tile-size) + 2 * var(--tile-gap) + 6 * var(--tile-border-width)) */
-                --one-column-width: 1016px;
+                --tile-scaling: 70%;
+                /* */
+                --three-tiles-width: calc(3 * var(--tile-size));
+                --two-gaps-width: calc(2 * var(--tile-gap));
+                --six-borders-width: calc(6 * var(--tile-border-width));
+                --one-column-width: calc(var(---three-tiles-width) + var(---two-gaps-width) + var(---six-borders-width));
+                /* --one-column-width: 1016px; */
             }
             * {
                 margin: 0;
@@ -120,20 +125,23 @@
             .tile.highlight {
                 border-color: var(--highlight);
             }
+            .tile.smaller {
+                transform: scale(var(--tile-scaling));
+            }
             .tile.store {
-                background: var(--tile-background-color) url('images/store-2.png') no-repeat center bottom 30px;
-                order: 0;
+                background: var(--tile-background-color) url('images/tile-store-2.png') no-repeat center bottom 30px;
             }
             .tile.winner {
-                background: var(--tile-background-color) url('images/trophy-2.png') no-repeat center bottom 30px;
-                order: 1;
+                background: var(--tile-background-color) url('images/tile-trophy-2.png') no-repeat center bottom 30px;
             }
             .tile.rulebook {
-                background: var(--tile-background-color) url('images/rulebook-2.png') no-repeat center bottom 30px;
-                order: 2;
+                background: var(--tile-background-color) url('images/tile-rulebook-2.png') no-repeat center bottom 30px;
             }
             .tile.video {
-                background: var(--tile-background-color) url('images/video-2.png') no-repeat center bottom 30px;
+                background: var(--tile-background-color) url('images/tile-video-2.png') no-repeat center bottom 30px;
+            }
+            .tile.boardgamegeek {
+                background: var(--tile-background-color) url('images/tile-pawn-3.png') no-repeat center bottom 30px;
             }
             @media (max-width: 1016px) {
                 .tile.store {
@@ -184,7 +192,7 @@
         </div>
         <div class="tiles">
             <a href="https://www.thegamecrafter.com/games/locked-out"
-                class="tile store"
+                class="tile smaller store"
             >
                 <span class="label">Store</span>
                 <span class="tooltip">
@@ -192,7 +200,7 @@
                 </span>
             </a>
             <a href="https://news.thegamecrafter.com/post/716315231479005184/lunchtime-game-challenge-winner-announced"
-                class="tile winner highlight"
+                class="tile smaller winner"
             >
                 <span class="label">Winner!</span>
                 <span class="tooltip">
@@ -210,6 +218,14 @@
         </div>
         <br>
         <div class="tiles">
+            <a href="https://boardgamegeek.com/boardgame/399733/locked-out"
+                class="tile boardgamegeek"
+            >
+                <span class="label">BoardGameGeek</span>
+                <span class="tooltip">
+                    Community page about the game.
+                </span>
+            </a>
             <a href="https://youtu.be/I-s63NKyK_c"
                 class="tile video"
             >
