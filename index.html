@@ -33,7 +33,7 @@
                 --primary: #49dbf2; /* cyan/lightblue */
                 --secondary: #dc9724; /* orange */
                 --highlight: yellow;
-                --tile-gap: 20px;
+                --tile-gap: 30px;
                 --tile-size: 320px;
                 --tile-border-width: 6px;
                 --tile-border-color: #eee; /* grey */
@@ -84,18 +84,23 @@
                 animation: rotation-right 4s;
                 animation-iteration-count: infinite;
             }
-            .tiles {
+            .centering {
                 display: flex;
-                gap: var(--tile-gap);
-                flex-direction: row;
                 justify-content: center;
-                align-items: center;
+            }
+            .tiles {
+                display: grid;
+                justify-items: center;
+                grid-gap: var(--tile-gap);
                 font-family: 'Nasalization Regular', sans-serif;
                 font-size: 26px;
+                grid-template-areas:
+                    'store  store  winner   winner   boardgamegeek boardgamegeek'
+                    '.      video  video   rulebook    rulebook                .';
             }
             @media (max-width: 1016px) {
                 .tiles {
-                    flex-direction: column;
+                    grid-template-areas: 'winner' 'video' 'rulebook' 'boardgamegeek' 'store';
                 }
             }
             .tile {
@@ -128,28 +133,27 @@
             .tile.smaller {
                 transform: scale(var(--tile-scaling));
             }
-            .tile.store {
-                background: var(--tile-background-color) url('images/tile-store-2.png') no-repeat center bottom 30px;
-            }
-            .tile.winner {
-                background: var(--tile-background-color) url('images/tile-trophy-2.png') no-repeat center bottom 30px;
+            .tile.boardgamegeek {
+                background: var(--tile-background-color) url('images/tile-pawn-3.png') no-repeat center bottom 30px;
+                grid-area: boardgamegeek;
             }
             .tile.rulebook {
                 background: var(--tile-background-color) url('images/tile-rulebook-2.png') no-repeat center bottom 30px;
+                grid-area: rulebook;
+            }
+            .tile.store {
+                background: var(--tile-background-color) url('images/tile-store-2.png') no-repeat center bottom 30px;
+                grid-area: store;
             }
             .tile.video {
                 background: var(--tile-background-color) url('images/tile-video-2.png') no-repeat center bottom 30px;
+                grid-area: video;
             }
-            .tile.boardgamegeek {
-                background: var(--tile-background-color) url('images/tile-pawn-3.png') no-repeat center bottom 30px;
+            .tile.winner {
+                background: var(--tile-background-color) url('images/tile-trophy-2.png') no-repeat center bottom 30px;
+                grid-area: winner;
             }
             @media (max-width: 1016px) {
-                .tile.store {
-                    order: 1;
-                }
-                .tile.winner {
-                    order: 0;
-                }
             }
             .tile .label {
                 display: inline-block;
@@ -190,52 +194,51 @@
                 By René Uittenbogaard
             </p>
         </div>
-        <div class="tiles">
-            <a href="https://www.thegamecrafter.com/games/locked-out"
-                class="tile smaller store"
-            >
-                <span class="label">Store</span>
-                <span class="tooltip">
-                    Visit the store page on The Game Crafter.
-                </span>
-            </a>
-            <a href="https://news.thegamecrafter.com/post/716315231479005184/lunchtime-game-challenge-winner-announced"
-                class="tile winner highlight"
-            >
-                <span class="label">Winner!</span>
-                <span class="tooltip">
-                    Winner of the Lunchtime Game Challenge!
-                </span>
-            </a>
-            <a href="https://boardgamegeek.com/boardgame/399733/locked-out"
-                class="tile boardgamegeek smaller"
-            >
-                <span class="label">BoardGameGeek</span>
-                <span class="tooltip">
-                    Community page about the game.
-                </span>
-            </a>
+        <div class="centering">
+            <div class="tiles">
+                <a href="https://boardgamegeek.com/boardgame/399733/locked-out"
+                   class="tile boardgamegeek smaller"
+                   >
+                   <span class="label">BoardGameGeek</span>
+                   <span class="tooltip">
+                       Community page about the game.
+                   </span>
+                </a>
+                <a href="docs/Locked-Out-Rulebook.pdf"
+                   class="tile rulebook"
+                   >
+                   <span class="label">Rulebook</span>
+                   <span class="tooltip">
+                       Read and/or download the rulebook in PDF format.
+                   </span>
+                </a>
+                <a href="https://www.thegamecrafter.com/games/locked-out"
+                   class="tile smaller store"
+                   >
+                   <span class="label">Store</span>
+                   <span class="tooltip">
+                       Visit the store page on The Game Crafter.
+                   </span>
+                </a>
+                <a href="https://youtu.be/I-s63NKyK_c"
+                   class="tile video"
+                   >
+                   <span class="label">Overview</span>
+                   <span class="tooltip">
+                       Watch a short video explaining the game.
+                   </span>
+                </a>
+                <a href="https://news.thegamecrafter.com/post/716315231479005184/lunchtime-game-challenge-winner-announced"
+                   class="tile winner highlight"
+                   >
+                   <span class="label">Winner!</span>
+                   <span class="tooltip">
+                       Winner of the Lunchtime Game Challenge!
+                   </span>
+                </a>
+            </div>
         </div>
-        <br>
-        <div class="tiles">
-            <a href="https://youtu.be/I-s63NKyK_c"
-                class="tile video"
-            >
-                <span class="label">Overview</span>
-                <span class="tooltip">
-                    Watch a short video explaining the game.
-                </span>
-            </a>
-            <a href="docs/Locked-Out-Rulebook.pdf"
-                class="tile rulebook"
-            >
-                <span class="label">Rulebook</span>
-                <span class="tooltip">
-                    Read and/or download the rulebook in PDF format.
-                </span>
-            </a>
-        </div>
-        <p>&nbsp;</p>
+        <p><br><br></p>
     </body>
 </html>
 <!-- vim: set ts=4 sw=4 et list fdm=marker ft=html: -->
