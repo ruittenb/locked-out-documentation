@@ -43,7 +43,7 @@
                 --three-tiles-width: calc(3 * var(--tile-size));
                 --two-gaps-width: calc(2 * var(--tile-gap));
                 --six-borders-width: calc(6 * var(--tile-border-width));
-                --one-column-width: calc(var(---three-tiles-width) + var(---two-gaps-width) + var(---six-borders-width));
+                --one-column-width: calc(var(--three-tiles-width) + var(--two-gaps-width) + var(--six-borders-width));
                 /* --one-column-width: 1016px; */
             }
             * {
@@ -95,12 +95,12 @@
                 font-family: 'Nasalization Regular', sans-serif;
                 font-size: 26px;
                 grid-template-areas:
-                    'store  store  winner   winner   boardgamegeek boardgamegeek'
-                    '.      video  video   rulebook    rulebook                .';
+                    'winner  winner  kickstarter  kickstarter  boardgamegeek  boardgamegeek'
+                    '.       video      video      rulebook      rulebook                 .';
             }
             @media (max-width: 1016px) {
                 .tiles {
-                    grid-template-areas: 'winner' 'video' 'rulebook' 'boardgamegeek' 'store';
+                    grid-template-areas: 'kickstarter' 'video' 'rulebook' 'boardgamegeek' 'winner';
                 }
             }
             .tile {
@@ -130,12 +130,19 @@
             .tile.highlight {
                 border-color: var(--highlight);
             }
+            .tile.hidden {
+                display: none;
+            }
             .tile.smaller {
                 transform: scale(var(--tile-scaling));
             }
             .tile.boardgamegeek {
-                background: var(--tile-background-color) url('images/tile-pawn-3.png') no-repeat center bottom 30px;
+                background: var(--tile-background-color) url('images/tile-pawn-2.png') no-repeat center bottom 30px;
                 grid-area: boardgamegeek;
+            }
+            .tile.kickstarter {
+                background: var(--tile-background-color) url('images/tile-kickstarter-2.png') no-repeat center bottom 30px;
+                grid-area: kickstarter;
             }
             .tile.rulebook {
                 background: var(--tile-background-color) url('images/tile-rulebook-2.png') no-repeat center bottom 30px;
@@ -152,8 +159,6 @@
             .tile.winner {
                 background: var(--tile-background-color) url('images/tile-trophy-2.png') no-repeat center bottom 30px;
                 grid-area: winner;
-            }
-            @media (max-width: 1016px) {
             }
             .tile .label {
                 display: inline-block;
@@ -196,6 +201,14 @@
         </div>
         <div class="centering">
             <div class="tiles">
+                <a href="https://www.kickstarter.com/projects/beardedboardgames/1542016531/build"
+                    class="tile kickstarter highlight"
+                >
+                    <span class="label">Kickstarter</span>
+                    <span class="tooltip">
+                        Support our Kickstarter Campaign to obtain a copy!
+                    </span>
+                </a>
                 <a href="https://boardgamegeek.com/boardgame/399733/locked-out"
                    class="tile boardgamegeek smaller"
                    >
@@ -213,7 +226,7 @@
                    </span>
                 </a>
                 <a href="https://www.thegamecrafter.com/games/locked-out"
-                   class="tile smaller store"
+                   class="tile store hidden"
                    >
                    <span class="label">Store</span>
                    <span class="tooltip">
@@ -229,7 +242,7 @@
                    </span>
                 </a>
                 <a href="https://news.thegamecrafter.com/post/716315231479005184/lunchtime-game-challenge-winner-announced"
-                   class="tile winner highlight"
+                   class="tile winner smaller"
                    >
                    <span class="label">Winner!</span>
                    <span class="tooltip">
