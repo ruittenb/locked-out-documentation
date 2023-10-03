@@ -95,8 +95,8 @@
                 font-family: 'Nasalization Regular', sans-serif;
                 font-size: 26px;
                 grid-template-areas:
-                    'store  store  winner   winner   boardgamegeek boardgamegeek'
-                    '.      video  video   rulebook    rulebook                .';
+                    'publisher  publisher  winner   winner   boardgamegeek boardgamegeek'
+                    '.            video    video   rulebook    rulebook                .';
             }
             @media (max-width: 1016px) {
                 .tiles {
@@ -133,9 +133,16 @@
             .tile.smaller {
                 transform: scale(var(--tile-scaling));
             }
+            .tile.hidden {
+                display: none;
+            }
             .tile.boardgamegeek {
                 background: var(--tile-background-color) url('images/tile-pawn-3.png') no-repeat center bottom 30px;
                 grid-area: boardgamegeek;
+            }
+            .tile.publisher {
+                background: var(--tile-background-color) url('images/tile-beard-5.png') no-repeat center bottom 30px;
+                grid-area: publisher;
             }
             .tile.rulebook {
                 background: var(--tile-background-color) url('images/tile-rulebook-2.png') no-repeat center bottom 30px;
@@ -201,7 +208,15 @@
                    >
                    <span class="label">BoardGameGeek</span>
                    <span class="tooltip">
-                       Community page about the game.
+                       Community page about the game
+                   </span>
+                </a>
+                <a href="https://beardedboardgames.com/locked-out"
+                   class="tile publisher"
+                   >
+                   <span class="label">Our Publisher</span>
+                   <span class="tooltip">
+                       Published by Bearded Board Games
                    </span>
                 </a>
                 <a href="docs/Locked-Out-Rulebook.pdf"
@@ -209,15 +224,15 @@
                    >
                    <span class="label">Rulebook</span>
                    <span class="tooltip">
-                       Read and/or download the rulebook in PDF format.
+                       Read and/or download the rulebook in PDF format
                    </span>
                 </a>
                 <a href="https://www.thegamecrafter.com/games/locked-out"
-                   class="tile smaller store"
+                   class="tile store hidden"
                    >
                    <span class="label">Store</span>
                    <span class="tooltip">
-                       Visit the store page on The Game Crafter.
+                       Visit the store page on The Game Crafter
                    </span>
                 </a>
                 <a href="https://youtu.be/I-s63NKyK_c"
@@ -225,7 +240,7 @@
                    >
                    <span class="label">Overview</span>
                    <span class="tooltip">
-                       Watch a short video explaining the game.
+                       Watch a short video explaining the game
                    </span>
                 </a>
                 <a href="https://news.thegamecrafter.com/post/716315231479005184/lunchtime-game-challenge-winner-announced"
