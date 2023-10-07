@@ -95,12 +95,12 @@
                 font-family: 'Nasalization Regular', sans-serif;
                 font-size: 26px;
                 grid-template-areas:
-                    'winner  winner  kickstarter  kickstarter  boardgamegeek  boardgamegeek'
-                    '.       video      video      rulebook      rulebook                 .';
+                    'winner  winner  kickstarter  kickstarter  publisher publisher'
+                    'bgg bgg       video      video      rulebook      rulebook   ';
             }
             @media (max-width: 1016px) {
                 .tiles {
-                    grid-template-areas: 'kickstarter' 'video' 'rulebook' 'boardgamegeek' 'winner';
+                    grid-template-areas: 'winner' 'video' 'rulebook' 'bgg' 'publisher' 'kickstarter';
                 }
             }
             .tile {
@@ -136,9 +136,13 @@
             .tile.smaller {
                 transform: scale(var(--tile-scaling));
             }
-            .tile.boardgamegeek {
+            .tile.bgg {
                 background: var(--tile-background-color) url('images/tile-pawn-2.png') no-repeat center bottom 30px;
-                grid-area: boardgamegeek;
+                grid-area: bgg;
+            }
+            .tile.publisher {
+                background: var(--tile-background-color) url('images/tile-beard-6.png') no-repeat center bottom 30px;
+                grid-area: publisher;
             }
             .tile.kickstarter {
                 background: var(--tile-background-color) url('images/tile-kickstarter-2.png') no-repeat center bottom 30px;
@@ -210,11 +214,19 @@
                     </span>
                 </a>
                 <a href="https://boardgamegeek.com/boardgame/399733/locked-out"
-                   class="tile boardgamegeek smaller"
+                   class="tile bgg"
                    >
                    <span class="label">BoardGameGeek</span>
                    <span class="tooltip">
-                       Community page about the game.
+                       Community page about the game
+                   </span>
+                </a>
+                <a href="https://beardedboardgames.com/locked-out"
+                   class="tile publisher"
+                   >
+                   <span class="label">Our Publisher</span>
+                   <span class="tooltip">
+                       Published by Bearded Board Games
                    </span>
                 </a>
                 <a href="docs/Locked-Out-Rulebook.pdf"
@@ -222,7 +234,7 @@
                    >
                    <span class="label">Rulebook</span>
                    <span class="tooltip">
-                       Read and/or download the rulebook in PDF format.
+                       Read and/or download the rulebook in PDF format
                    </span>
                 </a>
                 <a href="https://www.thegamecrafter.com/games/locked-out"
@@ -230,7 +242,7 @@
                    >
                    <span class="label">Store</span>
                    <span class="tooltip">
-                       Visit the store page on The Game Crafter.
+                       Visit the store page on The Game Crafter
                    </span>
                 </a>
                 <a href="https://youtu.be/I-s63NKyK_c"
@@ -238,11 +250,11 @@
                    >
                    <span class="label">Overview</span>
                    <span class="tooltip">
-                       Watch a short video explaining the game.
+                       Watch a short video explaining the game
                    </span>
                 </a>
                 <a href="https://news.thegamecrafter.com/post/716315231479005184/lunchtime-game-challenge-winner-announced"
-                   class="tile winner smaller"
+                   class="tile winner"
                    >
                    <span class="label">Winner!</span>
                    <span class="tooltip">
