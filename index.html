@@ -95,12 +95,12 @@
                 font-family: 'Nasalization Regular', sans-serif;
                 font-size: 26px;
                 grid-template-areas:
-                    'publisher  publisher  winner   winner   boardgamegeek boardgamegeek'
-                    '.            video    video   rulebook    rulebook                .';
+                    'video  video  winner  winner   publisher  publisher'
+                    '.       bgg    bgg   rulebook   rulebook          .';
             }
             @media (max-width: 1016px) {
                 .tiles {
-                    grid-template-areas: 'winner' 'video' 'rulebook' 'boardgamegeek' 'store';
+                    grid-template-areas: 'winner' 'video' 'publisher' 'bgg' 'rulebook';
                 }
             }
             .tile {
@@ -136,12 +136,12 @@
             .tile.hidden {
                 display: none;
             }
-            .tile.boardgamegeek {
+            .tile.bgg {
                 background: var(--tile-background-color) url('images/tile-pawn-3.png') no-repeat center bottom 30px;
-                grid-area: boardgamegeek;
+                grid-area: bgg;
             }
             .tile.publisher {
-                background: var(--tile-background-color) url('images/tile-beard-5.png') no-repeat center bottom 30px;
+                background: var(--tile-background-color) url('images/tile-beard-6.png') no-repeat center bottom 30px;
                 grid-area: publisher;
             }
             .tile.rulebook {
@@ -204,7 +204,7 @@
         <div class="centering">
             <div class="tiles">
                 <a href="https://boardgamegeek.com/boardgame/399733/locked-out"
-                   class="tile boardgamegeek smaller"
+                   class="tile bgg"
                    >
                    <span class="label">BoardGameGeek</span>
                    <span class="tooltip">
@@ -244,7 +244,7 @@
                    </span>
                 </a>
                 <a href="https://news.thegamecrafter.com/post/716315231479005184/lunchtime-game-challenge-winner-announced"
-                   class="tile winner highlight"
+                   class="tile winner"
                    >
                    <span class="label">Winner!</span>
                    <span class="tooltip">
