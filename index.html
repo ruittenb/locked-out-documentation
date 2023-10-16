@@ -111,8 +111,8 @@
                 font-family: 'Nasalization Regular', sans-serif;
                 font-size: 26px;
                 grid-template-areas:
-                    ' bgg     bgg    facebook  facebook  publisher  publisher kickstarter kickstarter'
-                    '. video   video   rulebook  rulebook    winner    winner  .';
+                    '. video  video   kickstarter  kickstarter  facebook  facebook .'
+                    'bgg bgg rulebook  rulebook    winner    winner  publisher publisher';
             }
             @media (max-width: 1016px) {
                 .tiles {
@@ -144,8 +144,8 @@
                 cursor: not-allowed;
             }
             .tile.highlight {
-                /* border-color: var(--highlight); */
-                border-color: var(--secondary);
+                border-color: var(--highlight);
+                /* border-color: var(--secondary); */
             }
             .tile.hidden {
                 display: none;
@@ -190,8 +190,8 @@
                 margin-top: 40px;
             }
             .tile.highlight .label {
-                /* color: var(--highlight); */
-                color: var(--secondary);
+                color: var(--highlight);
+                /* color: var(--secondary); */
             }
             .tile .tooltip {
                 position: absolute;
@@ -246,7 +246,7 @@
                    </span>
                 </a>
                 <a href="https://www.facebook.com/groups/860764005721905"
-                   class="tile facebook highlight"
+                   class="tile facebook"
                    >
                    <span class="label">Facebook</span>
                    <span class="tooltip">
@@ -295,7 +295,7 @@
                 </a>
                 <!--a href="https://news.thegamecrafter.com/post/716315231479005184/lunchtime-game-challenge-winner-announced" -->
                 <a href="https://www.eatlunchandboardgame.com/interview-with-rene-uittenbogaard-design-competition-winner"
-                   class="tile winner"
+                   class="tile winner small"
                    >
                    <span class="label">Winner!</span>
                    <span class="tooltip">
