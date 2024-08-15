@@ -47,7 +47,7 @@
                 --three-tiles-width: calc(3 * var(--tile-size));
                 --two-gaps-width: calc(2 * var(--tile-gap));
                 --six-borders-width: calc(6 * var(--tile-border-width));
-                --one-column-width: calc(var(---three-tiles-width) + var(---two-gaps-width) + var(---six-borders-width));
+                --one-column-width: calc(var(--three-tiles-width) + var(--two-gaps-width) + var(--six-borders-width));
                 /* --one-column-width: 1016px; */
             }
             * {
@@ -121,12 +121,12 @@
                 font-family: 'Nasalization Regular', sans-serif;
                 font-size: 26px;
                 grid-template-areas:
-                    ' bgg     bgg    facebook  facebook  publisher  publisher'
-                    'video   video   rulebook  rulebook    winner    winner  ';
+                    '. video  video   kickstarter  kickstarter  facebook  facebook .'
+                    'bgg bgg rulebook  rulebook    winner    winner  publisher publisher';
             }
             @media (max-width: 1016px) {
                 .tiles {
-                    grid-template-areas: 'facebook' 'video' 'winner' 'publisher' 'bgg' 'rulebook';
+                    grid-template-areas: 'kickstarter' 'facebook' 'video' 'winner' 'publisher' 'bgg' 'rulebook';
                 }
             }
             .tile {
@@ -154,17 +154,17 @@
                 cursor: not-allowed;
             }
             .tile.highlight {
-                /* border-color: var(--highlight); */
-                border-color: var(--secondary);
-            }
-            .tile.small {
-                transform: scale(var(--tile-scaling));
+                border-color: var(--highlight);
+                /* border-color: var(--secondary); */
             }
             .tile.hidden {
                 display: none;
             }
+            .tile.small {
+                transform: scale(var(--tile-scaling));
+            }
             .tile.bgg {
-                background: var(--tile-background-color) url('images/tile-pawn-3.png') no-repeat center bottom 30px;
+                background: var(--tile-background-color) url('images/tile-pawn-2.png') no-repeat center bottom 30px;
                 grid-area: bgg;
             }
             .tile.facebook {
@@ -174,6 +174,10 @@
             .tile.publisher {
                 background: var(--tile-background-color) url('images/tile-beard-6.png') no-repeat center bottom 30px;
                 grid-area: publisher;
+            }
+            .tile.kickstarter {
+                background: var(--tile-background-color) url('images/tile-kickstarter-2.png') no-repeat center bottom 30px;
+                grid-area: kickstarter;
             }
             .tile.rulebook {
                 background: var(--tile-background-color) url('images/tile-rulebook-2.png') no-repeat center bottom 30px;
@@ -191,15 +195,13 @@
                 background: var(--tile-background-color) url('images/tile-trophy-2.png') no-repeat center bottom 30px;
                 grid-area: winner;
             }
-            @media (max-width: 1016px) {
-            }
             .tile .label {
                 display: inline-block;
                 margin-top: 40px;
             }
             .tile.highlight .label {
-                /* color: var(--highlight); */
-                color: var(--secondary);
+                color: var(--highlight);
+                /* color: var(--secondary); */
             }
             .tile .tooltip {
                 position: absolute;
@@ -255,12 +257,20 @@
                    </span>
                 </a>
                 <a href="https://www.facebook.com/groups/860764005721905"
-                   class="tile facebook highlight"
+                   class="tile facebook"
                    >
                    <span class="label">Facebook</span>
                    <span class="tooltip">
                        Latest news on Facebook
                    </span>
+                </a>
+                <a href="https://www.kickstarter.com/projects/beardedboardgames/1542016531/build"
+                    class="tile kickstarter highlight"
+                >
+                    <span class="label">Kickstarter</span>
+                    <span class="tooltip">
+                        Support our Kickstarter Campaign to obtain a copy!
+                    </span>
                 </a>
                 <a href="https://beardedboardgames.com/locked-out"
                    class="tile publisher small"
@@ -296,7 +306,7 @@
                 </a>
                 <!--a href="https://news.thegamecrafter.com/post/716315231479005184/lunchtime-game-challenge-winner-announced" -->
                 <a href="https://www.eatlunchandboardgame.com/interview-with-rene-uittenbogaard-design-competition-winner"
-                   class="tile winner"
+                   class="tile winner small"
                    >
                    <span class="label">Winner!</span>
                    <span class="tooltip">
