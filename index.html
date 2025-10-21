@@ -55,10 +55,20 @@
                 padding: 0;
             }
             body {
-                background: black url(images/background-spacecraft.png) no-repeat 0vw 400px / 100vw auto;
+                background: black;
                 color: var(--primary);
                 font-family: 'Kefa Bold', serif;
                 font-size: 20px;
+            }
+            .background-video {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                z-index: -1;
+                opacity: 0.5;
             }
             .title {
                 margin: 30px auto 70px;
@@ -224,7 +234,6 @@
         </style><!-- }}} -->
     </head>
     <body>
-        <!-- img src="images/background-stars.png" alt="" class="stars" -->
         <div class="title">
             <img src="images/logo-closed-3d.png" alt="Locked Out" class="logo">
             <img src="images/logo-lock-3d.png" alt="" class="lock-left">
