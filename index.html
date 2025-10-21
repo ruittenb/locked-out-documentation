@@ -131,12 +131,12 @@
                 font-family: 'Nasalization Regular', sans-serif;
                 font-size: 26px;
                 grid-template-areas:
-                    '.    video  video     publisher  publisher  facebook  facebook     .'
-                    'bgg  bgg    rulebook  rulebook   winner     winner    kickstarter  kickstarter';
+                    '.         video     video     publisher  publisher  bgg     bgg          .'
+                    'facebook  facebook  rulebook  rulebook   winner     winner  kickstarter  kickstarter';
             }
             @media (max-width: 1016px) {
                 .tiles {
-                    grid-template-areas: 'kickstarter' 'facebook' 'video' 'winner' 'publisher' 'bgg' 'rulebook';
+                    grid-template-areas: 'publisher' 'video' 'bgg' 'facebook' 'winner' 'rulebook' 'kickstarter';
                 }
             }
             .tile {
@@ -258,7 +258,7 @@
         <div class="centering">
             <div class="tiles">
                 <a href="https://boardgamegeek.com/boardgame/399733/locked-out"
-                   class="tile bgg small"
+                   class="tile bgg"
                    >
                    <span class="label">BoardGameGeek</span>
                    <span class="tooltip">
@@ -266,7 +266,7 @@
                    </span>
                 </a>
                 <a href="https://www.facebook.com/groups/860764005721905"
-                   class="tile facebook"
+                   class="tile facebook small"
                    >
                    <span class="label">Facebook</span>
                    <span class="tooltip">
