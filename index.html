@@ -231,6 +231,45 @@
             .tile:hover .tooltip {
                 visibility: visible;
             }
+            /* a <button> centers its content vertically; place the label at the top like in the <a> tiles */
+            button.tile {
+                display: inline-flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .popup {
+                display: none;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: auto; /* center in the viewport; overrides the global margin reset */
+                padding: var(--tile-gap);
+                border: 0;
+                background: transparent;
+                color: var(--primary);
+                font-family: 'Nasalization Regular', sans-serif;
+                font-size: 26px;
+                max-width: 90vw;
+            }
+            .popup:popover-open {
+                display: flex;
+            }
+            .popup::backdrop {
+                background: rgba(0, 0, 0, 0.6);
+            }
+            .popup .tile.small {
+                background: var(--tile-background-color);
+                /* compensate for the empty space around a scaled tile */
+                margin: calc(-1 * var(--tile-gap));
+            }
+            .popup .flag {
+                position: absolute;
+                left: 50%;
+                bottom: 60px;
+                transform: translateX(-50%);
+                width: 180px;
+                height: 120px;
+                border: 2px solid var(--tile-border-color);
+            }
         </style><!-- }}} -->
     </head>
     <body>
@@ -258,23 +297,23 @@
         <div class="centering">
             <div class="tiles">
                 <a href="https://boardgamegeek.com/boardgame/399733/locked-out"
-                   class="tile bgg"
-                   >
-                   <span class="label">BoardGameGeek</span>
-                   <span class="tooltip">
-                       Community page about the game
-                   </span>
+                    class="tile bgg"
+                >
+                    <span class="label">BoardGameGeek</span>
+                    <span class="tooltip">
+                        Community page about the game
+                    </span>
                 </a>
                 <a href="https://www.facebook.com/groups/860764005721905"
-                   class="tile facebook small"
-                   >
-                   <span class="label">Facebook</span>
-                   <span class="tooltip">
-                       Latest news on Facebook
-                   </span>
+                    class="tile facebook small hidden"
+                >
+                    <span class="label">Facebook</span>
+                    <span class="tooltip">
+                        Latest news on Facebook
+                    </span>
                 </a>
                 <a href="https://www.kickstarter.com/projects/beardedboardgames/locked-out-a-semi-competitive-social-deduction-card-game"
-                    class="tile kickstarter small"
+                    class="tile kickstarter small hidden"
                 >
                     <span class="label">Kickstarter</span>
                     <span class="tooltip">
@@ -282,47 +321,87 @@
                     </span>
                 </a>
                 <a href="https://beardedboardgames.com/locked-out"
-                   class="tile publisher highlight"
-                   >
-                   <span class="label">Buy a copy!</span>
-                   <span class="tooltip">
-                       Published by Bearded Board Games
-                   </span>
+                    class="tile publisher highlight"
+                >
+                    <span class="label">Buy a copy!</span>
+                    <span class="tooltip">
+                        Published by Bearded Board Games
+                    </span>
                 </a>
-                <a href="docs/Locked-Out-Rulebook.pdf"
-                   class="tile rulebook small"
-                   >
-                   <span class="label">Rulebook</span>
-                   <span class="tooltip">
-                       Read and/or download the rulebook in PDF format
-                   </span>
-                </a>
+                <button type="button"
+                    popovertarget="rulebook-popup"
+                    class="tile rulebook"
+                >
+                    <span class="label">Rulebook</span>
+                    <span class="tooltip">
+                        Download the rulebook in PDF format
+                    </span>
+                </button>
                 <a href="https://www.thegamecrafter.com/games/locked-out"
                    class="tile store hidden"
-                   >
-                   <span class="label">Store</span>
-                   <span class="tooltip">
-                       Visit the store page on The Game Crafter
-                   </span>
+                >
+                    <span class="label">Store</span>
+                    <span class="tooltip">
+                        Visit the store page on The Game Crafter
+                    </span>
                 </a>
                 <a href="https://youtu.be/I-s63NKyK_c"
                    class="tile video"
-                   >
-                   <span class="label">Overview</span>
-                   <span class="tooltip">
-                       Watch a short video explaining the game
-                   </span>
+                >
+                    <span class="label">Overview</span>
+                    <span class="tooltip">
+                        Watch a short video explaining the game
+                    </span>
                 </a>
                 <!--a href="https://news.thegamecrafter.com/post/716315231479005184/lunchtime-game-challenge-winner-announced" -->
                 <a href="https://www.eatlunchandboardgame.com/interview-with-rene-uittenbogaard-design-competition-winner"
-                   class="tile winner small"
-                   >
-                   <span class="label">Winner!</span>
-                   <span class="tooltip">
-                       Winner of the Lunchtime Game Challenge!
-                   </span>
+                   class="tile winner"
+                >
+                    <span class="label">Winner!</span>
+                    <span class="tooltip">
+                        Winner of the Lunchtime Game Challenge!
+                    </span>
                 </a>
             </div>
+        </div>
+        <div id="rulebook-popup" class="popup" popover>
+            <a href="docs/Locked-Out-Rulebook-1.08-EN.pdf"
+                download
+                class="tile small"
+            >
+                <span class="label">English</span>
+                <svg class="flag" viewBox="0 0 60 40" aria-hidden="true">
+                    <clipPath id="union-jack-clip">
+                        <path d="M30,20 h30 v20 z v20 h-30 z h-30 v-20 z v-20 h30 z"/>
+                    </clipPath>
+                    <rect width="60" height="40" fill="#012169"/>
+                    <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="6"/>
+                    <path d="M0,0 L60,40 M60,0 L0,40" clip-path="url(#union-jack-clip)" stroke="#C8102E" stroke-width="4"/>
+                    <path d="M30,0 v40 M0,20 h60" stroke="#fff" stroke-width="10"/>
+                    <path d="M30,0 v40 M0,20 h60" stroke="#C8102E" stroke-width="6"/>
+                </svg>
+            </a>
+            <a href="docs/Locked-Out-Rulebook-1.08-NL.pdf"
+                download
+                class="tile small"
+            >
+                <span class="label">Nederlands</span>
+                <svg class="flag" viewBox="0 0 9 6" aria-hidden="true">
+                    <rect width="9" height="6" fill="#21468B"/>
+                    <rect width="9" height="4" fill="#fff"/>
+                    <rect width="9" height="2" fill="#AE1C28"/>
+                </svg>
+            </a>
+            <a href="docs/Locked-Out-Reglamento-1.08-ES.pdf"
+                download
+                class="tile small"
+            >
+                <span class="label">Español</span>
+                <svg class="flag" viewBox="0 0 3 2" aria-hidden="true">
+                    <rect width="3" height="2" fill="#AA151B"/>
+                    <rect y="0.5" width="3" height="1" fill="#F1BF00"/>
+                </svg>
+            </a>
         </div>
         <p><br><br></p>
     </body>
